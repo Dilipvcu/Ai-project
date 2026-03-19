@@ -1,0 +1,46 @@
+{
+  "name": "ai-document-analysis-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for AI Document Analysis Engine",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:3001": "next dev -p 3001",
+    "dev:3002": "next dev -p 3002",
+    "dev:custom": "next dev -p $PORT",
+    "build": "next build",
+    "start": "next start",
+    "start:3001": "next start -p 3001",
+    "start:3002": "next start -p 3002",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.37",
+    "autoprefixer": "^10.4.27",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.294.0",
+    "next": "^14.0.4",
+    "postcss": "^8.5.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-hot-toast": "^2.4.1",
+    "react-query": "^3.39.3",
+    "recharts": "^2.10.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

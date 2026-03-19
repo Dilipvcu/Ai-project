@@ -1,0 +1,49 @@
+init_subparsers:
+  app: {}
+  dependencies: {}
+  plugins: {}
+  middleware: {}
+
+providers:
+  starlette.middleware.base:
+    - class_name: BaseHTTPMiddleware
+  starlette.middleware.cors:
+    - class_name: CORSMiddleware
+
+formatters:
+  simple:
+    (): logging.Formatter
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  json:
+    (): pythonjsonlogger.jsonlogger.JsonFormatter
+    format: '%(asctime)s %(name)s %(levelname)s %(message)s'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    level: INFO
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: json
+    filename: logs/app.log
+    maxBytes: 10485760
+    backupCount: 10
+    level: DEBUG
+
+loggers:
+  app:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+  uvicorn.access:
+    level: INFO
+    handlers: [console]
+    propagate: false
+
+root:
+  level: INFO
+  handlers: [console]
+
+version: 1
+disable_existing_loggers: false
