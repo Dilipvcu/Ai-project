@@ -3,7 +3,13 @@ import axios, { AxiosInstance } from 'axios';
 class APIClient {
   private client: AxiosInstance;
 
-  constructor(baseURL: string = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api') {
+  constructor() {
+    // Determine the API base URL based on environment
+    const isProduction = process.env.NODE_ENV === 'production';
+    const baseURL = isProduction
+      ? `${process.env.NEXT_PUBLIC_API_URL_PROD || 'https://ai-project-production-fdb3.up.railway.app'}/api`
+      : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api`;
+
     this.client = axios.create({
       baseURL,
       timeout: 30000,
